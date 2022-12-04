@@ -6,7 +6,7 @@
    background-color: $background-light-color;
 
    @include tablet {
-      position: relative;
+      // position: relative;
       padding-top: 62px;
       padding-bottom: 104px;
    }
@@ -18,6 +18,7 @@
    }
 }
 .rooms__container {
+   position: relative;
    margin-left: auto;
    margin-right: auto;
    padding-left: 15px;
@@ -29,7 +30,7 @@
    }
 
    @include tablet {
-      position: relative;
+      // position: relative;
       overflow: visible;
       max-width: 1024px;
       padding-left: 47px;
@@ -172,55 +173,55 @@
    }
 }
 
-.rooms-gallery {
-      @include tablet-down {
-            margin-bottom: 20px;
-         }
-}
+// .rooms-gallery {
+//       @include tablet-down {
+//             margin-bottom: 20px;
+//          }
+// }
 
-.rooms-gallery__list {
-   position: relative;
-   width: auto;
-   right: 115px;
-   display: flex;
-   gap: 16px;
+// .rooms-gallery__list {
+//    position: relative;
+//    width: auto;
+//    right: 115px;
+//    display: flex;
+//    gap: 16px;
 
-   @include tablet {
-      position: static;
-      right: 0;
-      gap: 40px;
-   }
+//    @include tablet {
+//       position: static;
+//       right: 0;
+//       gap: 40px;
+//    }
 
-}
+// }
 
-.rooms-gallery__img {
-   width: 194px;
-   background: $background-img-color;
-   box-shadow: 2px 2px 60px 2px rgba(0, 0, 0, 0.25);
-   border-radius: 2px;
+// .rooms-gallery__img {
+//    width: 194px;
+//    background: $background-img-color;
+//    box-shadow: 2px 2px 60px 2px rgba(0, 0, 0, 0.25);
+//    border-radius: 2px;
 
-   @include desktop {
-      width: 254px;
-   }
+//    @include desktop {
+//       width: 254px;
+//    }
 
-}
+// }
 
-.rooms__item:not(:last-child) {
-   margin-bottom: 16px;
-}
+// .rooms__item:not(:last-child) {
+//    margin-bottom: 16px;
+// }
 
-.rooms__list {
-   text-align: center;
-}
+// .rooms__list {
+//    text-align: center;
+// }
 
-.rooms__box {
-   @include tablet {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-   }
-}
+// .rooms__box {
+//    @include tablet {
+//       position: relative;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//    }
+// }
 .rooms__button--dark {
    background-color: $main-dark-color;
    color: $accent-color;
@@ -246,6 +247,7 @@
 }
 .button-link {
    display: inline-block;
+   text-align: center;
 }
 
 .rooms__button-arrow {
@@ -272,5 +274,116 @@
                      $bg-gradient-color 73%,
                      $bg-gradient-color 73.1%,
                      $background-light-color 73.1%);
+   }
+}
+// slider
+
+.rooms-gallery__slider-wrapper--left {
+   position: absolute;
+   top: 0;
+   right: 84px;
+   width: 330px;
+   border-radius: 2px;
+   overflow: hidden;
+   box-shadow: slider-wrapper-shadow;
+   // outline: 1px solid black;
+
+   @media screen and (min-width: 1024px) {
+      top: 948px;
+      right: 549px;
+      width: 428px;
+   }
+
+   @media screen and (min-width: 1280px) {
+      top: 908px;
+      right: 665px;
+      width: 530px;
+   }
+
+   & .slick-list {
+      overflow: hidden;
+   }
+
+   & .slick-track {
+      display: flex;
+      gap: 24px;
+      margin-left: 138px;
+   }
+}
+
+.rooms-gallery__slick-item--left {
+   // min-width: 330px;
+   // padding-left: 85px;
+   // margin-left: 20px;
+   box-shadow: $slider-item-shadow;
+   // outline: 1px solid black;
+
+   @media screen and (min-width: 1024px) {
+      // min-width: 428px;
+      // padding-left: 234px;
+      // margin-left: -194px;
+   }
+
+   @media screen and (min-width: 1280px) {
+      // min-width: 530px;
+      // padding-left: 285px;
+      // margin-left: -245px;
+   }
+
+   & .slick__box {
+      border-radius: 2px;
+      overflow: hidden;
+
+      &:nth-child(1n) {
+         box-shadow: $slider-item-shadow;
+      }
+   }
+}
+.rooms__container .slider-nav {
+   position: absolute;
+   bottom: 150px;
+   left: 18px;
+   width: 94px;
+   height: 18px;
+
+   @media screen and (min-width: 1024px) {
+      justify-content: space-between;
+      bottom: 40px;
+      left: 63px;
+   }
+
+   @media screen and (min-width: 1280px) {
+      justify-content: space-between;
+      bottom: 40px;
+      left: 88px;
+   }
+
+   & .slick-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-9px);
+      width: 30px;
+      height: 18px;
+      z-index: 10;
+      font-size: 0;
+      border: none;
+
+      &.slick-prev {
+         left: 0;
+         background: url('../images/svg/slider-prev-button.svg');
+         background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: transparent;
+      }
+
+      &.slick-next {
+         right: 0;
+         background: url('../images/svg/slider-next-button.svg');
+         background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: transparent;
+      }
    }
 }
